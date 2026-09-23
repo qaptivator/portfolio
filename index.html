@@ -96,10 +96,10 @@
 				animation: dot-to-box-div 1s cubic-bezier(0.4, 0, 0.2, 1);
 			}
 			.dot-to-box *:not(.no-fade) {
-				transition-property: all;
+				/*transition-property: all;
 				transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 				transition-duration: 150ms;
-				animation: dot-to-box-child 1s cubic-bezier(0.4, 0, 0.2, 1);
+				animation: dot-to-box-child 1s cubic-bezier(0.4, 0, 0.2, 1);*/
 			}
 
 			.tech-icons {
@@ -116,7 +116,8 @@
 				50% {
 					width: 0;
 					height: 10.4rem;
-					padding: 0;
+					padding-left: 0;
+					padding-right: 0;
 					overflow: hidden;
 				}
 				100% {
@@ -126,15 +127,15 @@
 				}
 			}
 
-			@keyframes dot-to-box-child {
+			/*@keyframes dot-to-box-child {
 				0%,
 				70% {
-					opacity: 100%;
+					opacity: 0%;
 				}
 				100% {
 					opacity: var(--target-opacity, 100%);
 				}
-			}
+			}*/
 
 			/* wordslider */
 			:root {
@@ -220,8 +221,10 @@
 	</head>
 	<body>
 		<div class="bg-grid w-screen h-screen flex justify-center items-center">
-			<div class="dot-to-box border-gray p-8 relative w-96 bg-dark">
-				<h1 class="wordslider-box">
+			<div
+				class="dot-to-box border-gray p-8 relative w-96 bg-dark whitespace-nowrap"
+			>
+				<h1 class="wordslider-box whitespace-nowrap">
 					<span>hi, i am</span>
 					<div class="wordslider-words">
 						<div class="wordslider-word-wrapper">
@@ -233,8 +236,8 @@
 						</div>
 					</div>
 				</h1>
-				<p>software engineer</p>
-				<button
+				<p class="whitespace-nowrap">software engineer</p>
+				<!--<button
 					style="bottom: 20px; right: 20px"
 					class="absolute p-2 z-10"
 					type="button"
@@ -252,9 +255,9 @@
 						<path d="m6 17 5-5-5-5" />
 						<path d="m13 17 5-5-5-5" />
 					</svg>
-				</button>
+				</button>-->
 				<!-- #region icons -->
-				<p class="flex gap-2 mt-2 tech-icons">
+				<p class="flex flex-nowrap gap-2 mt-2 opacity-50 w-64">
 					<svg
 						style="margin-right: -4px"
 						class="w-7"
