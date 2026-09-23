@@ -2,18 +2,15 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>acdev</title>
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 		<style>
-			@import url('https://fonts.googleapis.com/css2?family=Space%20Grotesk:wght@400;700&family=Space%20Mono:wght@400;700&display=swap');
+			@import url("https://fonts.googleapis.com/css2?family=Space%20Grotesk:wght@400;700&family=Space%20Mono:wght@400;700&display=swap");
 
 			:root {
-				--font-heading: 'Space Grotesk', sans-serif;
-				--font-body: 'Space Mono', serif;
+				--font-heading: "Space Grotesk", sans-serif;
+				--font-body: "Space Mono", serif;
 			}
 
 			body {
@@ -93,6 +90,52 @@
 				}
 			}
 
+			/* dot to box */
+
+			.dot-to-box {
+				animation: dot-to-box-div 1s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+			.dot-to-box *:not(.no-fade) {
+				transition-property: all;
+				transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+				transition-duration: 150ms;
+				animation: dot-to-box-child 1s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			.tech-icons {
+				--target-opacity: 50%;
+			}
+
+			@keyframes dot-to-box-div {
+				0% {
+					width: 0;
+					height: 0;
+					padding: 0;
+					overflow: hidden;
+				}
+				50% {
+					width: 0;
+					height: 10.4rem;
+					padding: 0;
+					overflow: hidden;
+				}
+				100% {
+					width: 24rem;
+					height: 10.4rem;
+					overflow: visible;
+				}
+			}
+
+			@keyframes dot-to-box-child {
+				0%,
+				70% {
+					opacity: 100%;
+				}
+				100% {
+					opacity: var(--target-opacity, 100%);
+				}
+			}
+
 			/* wordslider */
 			:root {
 				--wordslider-slide-height: 40px; /* Height of a single line of text */
@@ -116,11 +159,11 @@
 
 			.wordslider-word-wrapper {
 				/*
-			                 Total duration = 6 seconds (2s per unique word).
-			                 'infinite' keeps the cycle going forever.
-			             */
-				animation: wordslider-slide-up 8s cubic-bezier(0.77, 0, 0.175, 1)
-					infinite;
+					                 Total duration = 6 seconds (2s per unique word).
+					                 'infinite' keeps the cycle going forever.
+					             */
+				animation: wordslider-slide-up 8s
+					cubic-bezier(0.77, 0, 0.175, 1) infinite;
 			}
 
 			.wordslider-word {
@@ -130,20 +173,20 @@
 			}
 
 			/*
-			         Keyframes formula for steps:
-			         0% to 25% -> Show word 1 (0px)
-			         33% to 58% -> Show word 2 (-40px)
-			         66% to 91% -> Show word 3 (-80px)
-			         100% -> Snap back to the duplicate word 1 (-120px), instantly resetting to 0%
+					         Keyframes formula for steps:
+					         0% to 25% -> Show word 1 (0px)
+					         33% to 58% -> Show word 2 (-40px)
+					         66% to 91% -> Show word 3 (-80px)
+					         100% -> Snap back to the duplicate word 1 (-120px), instantly resetting to 0%
 
-			         word count:
-			         2 -> 0%, 40% -- 50%, 90% -- 100%
-			         3 -> 0%, 25% -- 33%, 58% -- 66%, 91% -- 100%
-			         4 -> 0%, 18% -- 25%, 43% -- 50%, 68% -- 75%, 93% -- 100%
-			         5 -> 0%, 15% -- 20%, 35% -- 40%, 55% -- 60%, 75% -- 80%, 95% -- 100%
-			         6 -> 0%, 12% -- 16.6%, 28.6% -- 33.3%, 45.3% -- 50%, 62% -- 66.6%, 78.6% -- 83.3%, 95.3% -- 100%
-			         7 -> 0%, 10% -- 14.3%, 24.3% -- 28.6%, 38.6% -- 42.9%, 52.9% -- 57.1%, 67.1% -- 71.4%, 81.4% -- 85.7%, 95.7% -- 100%
-			         */
+					         word count:
+					         2 -> 0%, 40% -- 50%, 90% -- 100%
+					         3 -> 0%, 25% -- 33%, 58% -- 66%, 91% -- 100%
+					         4 -> 0%, 18% -- 25%, 43% -- 50%, 68% -- 75%, 93% -- 100%
+					         5 -> 0%, 15% -- 20%, 35% -- 40%, 55% -- 60%, 75% -- 80%, 95% -- 100%
+					         6 -> 0%, 12% -- 16.6%, 28.6% -- 33.3%, 45.3% -- 50%, 62% -- 66.6%, 78.6% -- 83.3%, 95.3% -- 100%
+					         7 -> 0%, 10% -- 14.3%, 24.3% -- 28.6%, 38.6% -- 42.9%, 52.9% -- 57.1%, 67.1% -- 71.4%, 81.4% -- 85.7%, 95.7% -- 100%
+					         */
 			@keyframes wordslider-slide-up {
 				0%,
 				18% {
@@ -151,25 +194,33 @@
 				}
 				25%,
 				43% {
-					transform: translateY(calc(-1 * var(--wordslider-slide-height)));
+					transform: translateY(
+						calc(-1 * var(--wordslider-slide-height))
+					);
 				}
 				50%,
 				68% {
-					transform: translateY(calc(-2 * var(--wordslider-slide-height)));
+					transform: translateY(
+						calc(-2 * var(--wordslider-slide-height))
+					);
 				}
 				75%,
 				93% {
-					transform: translateY(calc(-3 * var(--wordslider-slide-height)));
+					transform: translateY(
+						calc(-3 * var(--wordslider-slide-height))
+					);
 				}
 				100% {
-					transform: translateY(calc(-4 * var(--wordslider-slide-height)));
+					transform: translateY(
+						calc(-4 * var(--wordslider-slide-height))
+					);
 				}
 			}
 		</style>
 	</head>
 	<body>
 		<div class="bg-grid w-screen h-screen flex justify-center items-center">
-			<div class="border-gray p-8 relative w-96 bg-dark">
+			<div class="dot-to-box border-gray p-8 relative w-96 bg-dark">
 				<h1 class="wordslider-box">
 					<span>hi, i am</span>
 					<div class="wordslider-words">
@@ -203,7 +254,7 @@
 					</svg>
 				</button>
 				<!-- #region icons -->
-				<p class="flex gap-2 mt-2 opacity-50">
+				<p class="flex gap-2 mt-2 tech-icons">
 					<svg
 						style="margin-right: -4px"
 						class="w-7"
@@ -300,10 +351,7 @@
 					viewBox="0 0 100 100"
 					xmlns="http://w3.org"
 				>
-					<polygon
-						points="0,0 0,100 100,100"
-						fill="#3a3a3a"
-					/>
+					<polygon points="0,0 0,100 100,100" fill="#3a3a3a" />
 				</svg>
 				<svg
 					style="bottom: 0; left: 20px"
@@ -313,10 +361,7 @@
 					viewBox="0 0 100 100"
 					xmlns="http://w3.org"
 				>
-					<polygon
-						points="0,0 0,100 100,100"
-						fill="#3a3a3a"
-					/>
+					<polygon points="0,0 0,100 100,100" fill="#3a3a3a" />
 				</svg>
 				<svg
 					style="bottom: 0; left: 40px"
@@ -326,10 +371,7 @@
 					viewBox="0 0 100 100"
 					xmlns="http://w3.org"
 				>
-					<polygon
-						points="0,0 0,100 100,100"
-						fill="#3a3a3a"
-					/>
+					<polygon points="0,0 0,100 100,100" fill="#3a3a3a" />
 				</svg>
 				<svg
 					style="top: 0; right: 0"
@@ -339,12 +381,7 @@
 					viewBox="0 0 100 100"
 					xmlns="http://www.w3.org/2000/svg"
 				>
-					<circle
-						cx="50"
-						cy="50"
-						r="50"
-						fill="#3a3a3a"
-					/>
+					<circle cx="50" cy="50" r="50" fill="#3a3a3a" />
 				</svg>
 				<svg
 					style="top: 20px; right: 0"
@@ -354,12 +391,7 @@
 					viewBox="0 0 100 100"
 					xmlns="http://w3.org"
 				>
-					<circle
-						cx="50"
-						cy="50"
-						r="50"
-						fill="#3a3a3a"
-					/>
+					<circle cx="50" cy="50" r="50" fill="#3a3a3a" />
 				</svg>
 				<svg
 					style="top: 0; right: 20px"
@@ -369,10 +401,7 @@
 					viewBox="0 0 100 100"
 					xmlns="http://w3.org"
 				>
-					<polygon
-						points="0,0 100,0 100,100"
-						fill="#3a3a3a"
-					/>
+					<polygon points="0,0 100,0 100,100" fill="#3a3a3a" />
 				</svg>
 				<svg
 					style="top: 40px; right: 0"
@@ -382,16 +411,13 @@
 					viewBox="0 0 100 100"
 					xmlns="http://w3.org"
 				>
-					<polygon
-						points="0,0 100,0 100,100"
-						fill="#3a3a3a"
-					/>
+					<polygon points="0,0 100,0 100,100" fill="#3a3a3a" />
 				</svg>
 				<!-- #endregion -->
 				<!-- #region pluses -->
 				<svg
 					style="top: -20px; right: -20px"
-					class="absolute opacity-20"
+					class="absolute opacity-20 no-fade"
 					width="20"
 					height="20"
 					viewBox="0 0 100 100"
@@ -416,7 +442,7 @@
 				</svg>
 				<svg
 					style="top: -20px; left: -20px"
-					class="absolute opacity-20"
+					class="absolute opacity-20 no-fade"
 					width="20"
 					height="20"
 					viewBox="0 0 100 100"
@@ -441,7 +467,7 @@
 				</svg>
 				<svg
 					style="bottom: -20px; right: -20px"
-					class="absolute opacity-20"
+					class="absolute opacity-20 no-fade"
 					width="20"
 					height="20"
 					viewBox="0 0 100 100"
@@ -466,7 +492,7 @@
 				</svg>
 				<svg
 					style="bottom: -20px; left: -20px"
-					class="absolute opacity-20"
+					class="absolute opacity-20 no-fade"
 					width="20"
 					height="20"
 					viewBox="0 0 100 100"
