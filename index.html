@@ -217,11 +217,19 @@
 					);
 				}
 			}
+
+			@media (max-width: 480px) {
+				#main-card {
+					transform: scale(0.8);
+					transform-origin: center center;
+				}
+			}
 		</style>
 	</head>
 	<body>
 		<div class="bg-grid w-screen h-screen flex justify-center items-center">
 			<div
+				id="main-card"
 				style="width: 25rem"
 				class="dot-to-box border-gray p-8 relative bg-dark whitespace-nowrap"
 			>
