@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>acdev</title>
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Space%20Grotesk:wght@400;700&family=Space%20Mono:wght@400;700&display=swap');
+
+			:root {
+				--font-heading: 'Space Grotesk', sans-serif;
+				--font-body: 'Space Mono', serif;
+			}
+
+			body {
+				background-color: #121113;
+				color: #eeeef0;
+			}
+
+			h1 {
+				font-family: var(--font-heading);
+				font-weight: bold;
+				font-size: 2.25rem;
+				line-height: 2.5rem; /* 4xl */
+			}
+
+			p {
+				font-family: var(--font-body);
+			}
+
+			div.qborder {
+				border-width: 1px;
+				border-color: #3a3a3a;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="w-screen h-screen flex justify-center items-center">
+			<div class="qborder p-8 relative">
+				<h1>hi, i am acdev</h1>
+				<p>software engineer</p>
+
+				<svg
+					style="bottom: 0; left: 0"
+					class="absolute"
+					width="20"
+					height="20"
+					viewBox="0 0 100 100"
+					xmlns="http://w3.org"
+				>
+					<polygon
+						points="0,0 0,100 100,100"
+						fill="#3a3a3a"
+					/>
+				</svg>
+				<svg
+					style="bottom: 0; left: 20px"
+					class="absolute"
+					width="20"
+					height="20"
+					viewBox="0 0 100 100"
+					xmlns="http://w3.org"
+				>
+					<polygon
+						points="0,0 0,100 100,100"
+						fill="#3a3a3a"
+					/>
+				</svg>
+				<svg
+					style="bottom: 0; left: 40px"
+					class="absolute"
+					width="20"
+					height="20"
+					viewBox="0 0 100 100"
+					xmlns="http://w3.org"
+				>
+					<polygon
+						points="0,0 0,100 100,100"
+						fill="#3a3a3a"
+					/>
+				</svg>
+			</div>
+		</div>
+	</body>
+</html>
