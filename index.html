@@ -40,7 +40,7 @@
 			/* wordslider */
 			:root {
 				--wordslider-slide-height: 40px; /* Height of a single line of text */
-				--wordslider-num-words: 3; /* Number of unique words (excluding the loop duplicate) */
+				--wordslider-num-words: 4; /* Number of unique words (excluding the loop duplicate) */
 			}
 
 			.wordslider-box {
@@ -63,7 +63,7 @@
                     Total duration = 6 seconds (2s per unique word).
                     'infinite' keeps the cycle going forever.
                 */
-				animation: wordslider-slide-up 6s cubic-bezier(0.77, 0, 0.175, 1)
+				animation: wordslider-slide-up 8s cubic-bezier(0.77, 0, 0.175, 1)
 					infinite;
 			}
 
@@ -90,19 +90,23 @@
             */
 			@keyframes wordslider-slide-up {
 				0%,
-				25% {
+				18% {
 					transform: translateY(0);
 				}
-				33%,
-				58% {
+				25%,
+				43% {
 					transform: translateY(calc(-1 * var(--wordslider-slide-height)));
 				}
-				66%,
-				91% {
+				50%,
+				68% {
 					transform: translateY(calc(-2 * var(--wordslider-slide-height)));
 				}
-				100% {
+				75%,
+				93% {
 					transform: translateY(calc(-3 * var(--wordslider-slide-height)));
+				}
+				100% {
+					transform: translateY(calc(-4 * var(--wordslider-slide-height)));
 				}
 			}
 		</style>
@@ -116,7 +120,7 @@
 						<div class="wordslider-word-wrapper">
 							<div class="wordslider-word">acdev</div>
 							<div class="wordslider-word">captivator</div>
-							<div class="wordslider-word">Andrii</div>
+							<div class="wordslider-word">andrii</div>
 							<div class="wordslider-word">cap</div>
 							<div class="wordslider-word">acdev</div>
 						</div>
