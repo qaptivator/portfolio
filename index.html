@@ -33,9 +33,21 @@
 				/*color: #3a3a3a;*/
 			}
 
-			div.qborder {
+			button {
+				cursor: crosshair;
+			}
+			button > * {
+				pointer-events: none;
+			}
+
+			.border-gray {
 				border-width: 1px;
 				border-color: #3a3a3a;
+			}
+
+			.border-white {
+				border-width: 2px;
+				border-color: #eeeef0;
 			}
 
 			/* wordslider */
@@ -114,7 +126,7 @@
 	</head>
 	<body>
 		<div class="w-screen h-screen flex justify-center items-center">
-			<div class="qborder p-8 relative w-96">
+			<div class="border-gray p-8 relative w-96">
 				<h1 class="wordslider-box">
 					<span>hi, i am</span>
 					<div class="wordslider-words">
@@ -128,6 +140,25 @@
 					</div>
 				</h1>
 				<p>software engineer</p>
+				<button
+					style="bottom: 20px; right: 20px"
+					class="absolute border-white p-2 z-10"
+					type="button"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="32"
+						height="32"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						class="lucide lucide-chevrons-right preview-icon"
+					>
+						<path d="m6 17 5-5-5-5" />
+						<path d="m13 17 5-5-5-5" />
+					</svg>
+				</button>
 				<!-- #region icons -->
 				<p class="flex gap-2 mt-2 opacity-50">
 					<svg
