@@ -36,12 +36,92 @@
 				border-width: 1px;
 				border-color: #3a3a3a;
 			}
+
+			/* wordslider */
+			:root {
+				--wordslider-slide-height: 40px; /* Height of a single line of text */
+				--wordslider-num-words: 3; /* Number of unique words (excluding the loop duplicate) */
+			}
+
+			.wordslider-box {
+				font-family: sans-serif;
+				font-size: 32px;
+				font-weight: bold;
+				display: flex;
+				align-items: center;
+				height: var(--wordslider-slide-height);
+				overflow: hidden; /* Hides the words waiting in queue */
+			}
+
+			.wordslider-words {
+				margin-left: 10px;
+				height: var(--wordslider-slide-height);
+			}
+
+			.wordslider-word-wrapper {
+				/* 
+                    Total duration = 6 seconds (2s per unique word).
+                    'infinite' keeps the cycle going forever.
+                */
+				animation: wordslider-slide-up 6s cubic-bezier(0.77, 0, 0.175, 1)
+					infinite;
+			}
+
+			.wordslider-word {
+				height: var(--wordslider-slide-height);
+				line-height: var(--wordslider-slide-height);
+				color: #0076ff;
+			}
+
+			/* 
+            Keyframes formula for steps:
+            0% to 25% -> Show word 1 (0px)
+            33% to 58% -> Show word 2 (-40px)
+            66% to 91% -> Show word 3 (-80px)
+            100% -> Snap back to the duplicate word 1 (-120px), instantly resetting to 0%
+
+            word count:
+            2 -> 0%, 40% -- 50%, 90% -- 100%
+            3 -> 0%, 25% -- 33%, 58% -- 66%, 91% -- 100%
+            4 -> 0%, 18% -- 25%, 43% -- 50%, 68% -- 75%, 93% -- 100%
+            5 -> 0%, 15% -- 20%, 35% -- 40%, 55% -- 60%, 75% -- 80%, 95% -- 100%
+            6 -> 0%, 12% -- 16.6%, 28.6% -- 33.3%, 45.3% -- 50%, 62% -- 66.6%, 78.6% -- 83.3%, 95.3% -- 100%
+            7 -> 0%, 10% -- 14.3%, 24.3% -- 28.6%, 38.6% -- 42.9%, 52.9% -- 57.1%, 67.1% -- 71.4%, 81.4% -- 85.7%, 95.7% -- 100%
+            */
+			@keyframes wordslider-slide-up {
+				0%,
+				25% {
+					transform: translateY(0);
+				}
+				33%,
+				58% {
+					transform: translateY(calc(-1 * var(--wordslider-slide-height)));
+				}
+				66%,
+				91% {
+					transform: translateY(calc(-2 * var(--wordslider-slide-height)));
+				}
+				100% {
+					transform: translateY(calc(-3 * var(--wordslider-slide-height)));
+				}
+			}
 		</style>
 	</head>
 	<body>
 		<div class="w-screen h-screen flex justify-center items-center">
 			<div class="qborder p-8 relative w-96">
-				<h1>hi, i am captivator</h1>
+				<h1 class="wordslider-box">
+					<span>hi, i am</span>
+					<div class="wordslider-words">
+						<div class="wordslider-word-wrapper">
+							<div class="wordslider-word">acdev</div>
+							<div class="wordslider-word">captivator</div>
+							<div class="wordslider-word">Andrii</div>
+							<div class="wordslider-word">cap</div>
+							<div class="wordslider-word">acdev</div>
+						</div>
+					</div>
+				</h1>
 				<p>software engineer</p>
 				<!-- #region triangles -->
 				<svg
