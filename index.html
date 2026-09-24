@@ -90,8 +90,16 @@
 				}
 			}
 
-			/* dot to box */
+			@media (max-width: 480px) {
+				#main-card {
+					transform: scale(0.8);
+					transform-origin: center center;
+				}
+			}
 
+			/* #region hero card css */
+
+			/* dot to box */
 			.dot-to-box {
 				animation: dot-to-box-div 1s cubic-bezier(0.6, 0, 0.2, 1);
 			}
@@ -217,13 +225,7 @@
 					);
 				}
 			}
-
-			@media (max-width: 480px) {
-				#main-card {
-					transform: scale(0.8);
-					transform-origin: center center;
-				}
-			}
+			/* #endregion */
 		</style>
 	</head>
 	<body>
