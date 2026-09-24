@@ -90,20 +90,6 @@
 				}
 			}
 
-			@keyframes fade-out {
-				exit 0% {
-					opacity: 0.2 !important;
-				}
-				exit 1% {
-					opacity: 0 !important;
-				}
-			}
-
-			#scroll-down-hint {
-				animation: scroll-hint-fade linear forwards;
-				animation-timeline: view();
-			}
-
 			#hero-card {
 				transform: scale(1.5);
 				transform-origin: center center;
@@ -245,8 +231,8 @@
 			/* #endregion */
 		</style>
 	</head>
-	<body class="bg-grid overflow-auto">
-		<div class="w-screen h-screen flex justify-center items-center">
+	<body class="bg-grid">
+		<div class="w-full h-screen flex justify-center items-center">
 			<div
 				id="hero-card"
 				style="width: 25rem"
@@ -268,7 +254,7 @@
 				<div
 					id="scroll-down-hint"
 					style="letter-spacing: 0.15em"
-					class="absolute left-1/2 -translate-x-1/2 -bottom-1 translate-y-full flex items-center gap-1 text-sm opacity-20"
+					class="absolute left-1/2 -translate-x-1/2 -bottom-1 translate-y-full flex items-center gap-1 text-sm opacity-20 transition-opacity"
 				>
 					<span>scroll</span>
 					<svg
@@ -652,7 +638,7 @@
 			</div>
 		</div>
 		<div
-			class="w-screen"
+			class="w-full"
 			style="
 				padding-inline: 500px;
 				margin-top: 150px;
@@ -769,5 +755,17 @@
 				<!-- #endregion -->
 			</div>
 		</div>
+		<script>
+			window.addEventListener("scroll", () => {
+				const hint = document.getElementById("scroll-down-hint");
+				if (window.scrollY > 20) {
+					hint.classList.add("opacity-0");
+					hint.classList.remove("opacity-20");
+				} else {
+					hint.classList.add("opacity-20");
+					hint.classList.remove("opacity-0");
+				}
+			});
+		</script>
 	</body>
 </html>
