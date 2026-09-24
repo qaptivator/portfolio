@@ -90,8 +90,21 @@
 				}
 			}
 
+			@keyframes fade-out {
+				to {
+					opacity: 0;
+					transform: translate(-50%, -10px);
+				}
+			}
+
+			.fade-out-on-scroll {
+				animation: fade-out linear forwards;
+				animation-timeline: scroll(root);
+				animation-range: 0px 150px;
+			}
+
 			@media (max-width: 480px) {
-				#main-card {
+				#hero-card {
 					transform: scale(0.8);
 					transform-origin: center center;
 				}
@@ -231,7 +244,7 @@
 	<body>
 		<div class="bg-grid w-screen h-screen flex justify-center items-center">
 			<div
-				id="main-card"
+				id="hero-card"
 				style="width: 25rem"
 				class="dot-to-box border-gray p-8 relative bg-dark whitespace-nowrap"
 			>
