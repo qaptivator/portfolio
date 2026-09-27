@@ -126,13 +126,13 @@
 			}
 			.project-card {
 				max-width: 800px;
-				/*clip-path: polygon(
+				clip-path: polygon(
 					0 0,
 					100% 0,
 					100% calc(100% - var(--project-card-corner-cutout)),
 					calc(100% - var(--project-card-corner-cutout)) 100%,
 					0 100%
-				);*/
+				);
 			}
 			@media (max-width: 480px) {
 				#hero-card {
@@ -761,6 +761,16 @@
 								<polyline points="7 7 17 7 17 17"></polyline>
 							</svg>
 						</a>
+						<svg
+							style="bottom: -1px; right: -1px"
+							class="absolute pointer-events-none"
+							width="51.25"
+							height="51.25"
+							viewBox="0 0 50 50"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<polygon points="0,50 50,0 50,50" fill="#3a3a3a" />
+						</svg>
 					</div>
 				</div>
 			</div>
