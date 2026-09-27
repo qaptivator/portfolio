@@ -11,6 +11,7 @@
 			:root {
 				--font-heading: "Space Grotesk", sans-serif;
 				--font-body: "Space Mono", serif;
+				--project-card-corner-cutout: 50px;
 			}
 
 			body {
@@ -47,6 +48,10 @@
 			}
 			button:hover {
 				opacity: 100%;
+			}
+
+			.text-primary {
+				color: #ff581b;
 			}
 
 			.bg-dark {
@@ -121,6 +126,13 @@
 			}
 			.project-card {
 				max-width: 800px;
+				/*clip-path: polygon(
+					0 0,
+					100% 0,
+					100% calc(100% - var(--project-card-corner-cutout)),
+					calc(100% - var(--project-card-corner-cutout)) 100%,
+					0 100%
+				);*/
 			}
 			@media (max-width: 480px) {
 				#hero-card {
@@ -670,7 +682,7 @@
 				<!-- #endregion -->
 			</div>
 		</div>
-		<div
+		<!--<div
 			class="w-full border-t-gray bg-border grid grid-cols-12 gap-[1px] relative"
 		>
 			<div class="bg-dark p-6 col-span-8">blah blah blah</div>
@@ -698,10 +710,18 @@
 			<div class="bg-dark col-span-8">
 				<img src="assets/images/convenotes_banner.png" />
 			</div>
-		</div>
+		</div>-->
+		<!-- #region projects -->
 		<div
 			class="w-full min-h-screen flex flex-col items-center bg-dark bg-hazard border-t-gray py-10 gap-10"
 		>
+			<div>
+				<h1>/// PRØJECTS \\\</h1>
+				<p class="text-center text-primary">
+					2020-<span class="current-year">now</span>
+				</p>
+			</div>
+
 			<!-- Card 1: Cavecrawler Mapper -->
 			<div class="project-card bg-dark border-gray transition-all">
 				<img
@@ -920,7 +940,12 @@
 				</div>
 			</div>
 		</div>
+		<!-- #endregion -->
 		<script>
+			const year = new Date().getFullYear();
+			document.querySelectorAll(".current-year").forEach((el) => {
+				el.textContent = year;
+			});
 			window.addEventListener("scroll", () => {
 				const hint = document.getElementById("scroll-down-hint");
 				if (window.scrollY > 20) {
