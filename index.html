@@ -54,9 +54,17 @@
 				color: #ff581b;
 			}
 
-			.bg-primary {
+			.border-primary {
+				border-color: #ff581b;
+			}
+
+			.bg-primary-card {
 				background-color: #4a1805;
 				border-color: #7a290a;
+			}
+
+			.bg-primary {
+				background-color: #ff581b;
 			}
 
 			.bg-dark {
@@ -908,7 +916,7 @@
 				</div>
 				<div class="flex flex-wrap gap-2">
 					<span
-						class="px-2 py-1 bg-primary text-xs text-gray-300 border border-gray-700"
+						class="px-2 py-1 bg-primary-card text-xs text-gray-300 border border-gray-700"
 						>Vue / Nuxt</span
 					>
 					<span
@@ -959,37 +967,54 @@
 
 			<!-- 5. OPEN SOURCE & CONTRIBUTIONS (Span 4) -->
 			<div
-				class="bg-dark p-6 col-span-12 md:col-span-4 flex flex-col justify-between"
+				class="bg-dark p-6 col-span-12 md:col-span-4 flex items-center justify-between gap-4 font-mono text-xs"
 			>
-				<div class="bg-border p-1 text-xs mb-6">
-					BASED IN // KYIV, UKRAINE
-				</div>
-				<div class="relative w-full max-w-72">
+				<!-- Left: Map Container (Aspect ~2:1 friendly) -->
+				<div class="relative w-1/2 max-w-[200px] shrink-0">
 					<img
-						class="opacity-10"
+						class="opacity-10 w-full pointer-events-none block"
 						src="assets/images/world_map_white.png"
+						alt="World Map"
 					/>
+
+					<!-- Kyiv Target Dot & Line -->
 					<div
-						class="absolute border-gray border-b-white! h-[60px] -top-[30px] left-[165px]"
-					></div>
-				</div>
-				<!--<div class="text-xs uppercase tracking-widest text-gray-500">
-					// OPEN SOURCE
-				</div>
-				<div>
-					<div class="text-base font-bold text-white mb-1">
-						Prism Launcher Contributor
+						class="absolute top-[17%] left-[57%] flex flex-col items-center pointer-events-none"
+					>
+						<!-- Kyiv Dot -->
+						<div class="w-1 h-1 rounded-full bg-primary"></div>
+						<!-- Connecting Line -->
+						<div
+							class="w-px h-8 bg-primary -translate-y-full"
+						></div>
 					</div>
-					<p class="text-xs text-gray-400">
-						Merged PRs (<span class="text-gray-200">#5414</span>,
-						<span class="text-gray-200">#5418</span>). Also built
-						open-source tools for circloO, Minecraft data exporting
-						(Fabric/Java), and Roblox API trackers.
-					</p>
 				</div>
-				<div class="text-[10px] text-gray-500 uppercase mt-2">
-					Community & Tooling
-				</div>-->
+
+				<!-- Right: Telemetry & Info Stack -->
+				<div
+					class="flex flex-col justify-between h-full w-1/2 pl-2 border-l border-primary space-y-3"
+				>
+					<!-- Header Badge -->
+					<div class="bg-border p-1 text-[11px] text-white">
+						BASED IN <span class="text-primary">//</span> KYIV,
+						UKRAINE
+					</div>
+
+					<!-- Timezone & Telemetry Stack -->
+					<div class="space-y-1">
+						<div class="text-white font-bold text-xs">
+							UTC+3
+							<span class="text-gray-500 font-normal"
+								>// EEST</span
+							>
+						</div>
+						<div
+							class="text-[9px] text-gray-500 uppercase tracking-widest leading-tight"
+						>
+							50.4501° N<br />30.5234° E
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<!-- 6. MAGNUM OPUS / CURRENT FOCUS (Span 8) -->
