@@ -27,6 +27,15 @@
 				line-height: 2.5rem; /* 4xl */
 			}
 
+			h2 {
+				font-family: var(--font-heading);
+				font-weight: bold;
+			}
+
+			h3 {
+				font-family: var(--font-heading);
+			}
+
 			p {
 				font-family: var(--font-body);
 				/*color: #3a3a3a;*/
@@ -58,6 +67,10 @@
 				border-color: #ff581b;
 			}
 
+			.border-primary-muted {
+				border-color: #7a290a;
+			}
+
 			.bg-primary-card {
 				background-color: #4a1805;
 				border-color: #7a290a;
@@ -65,6 +78,10 @@
 
 			.bg-primary {
 				background-color: #ff581b;
+			}
+
+			.bg-primary-muted {
+				background-color: #4a1805;
 			}
 
 			.bg-dark {
@@ -86,6 +103,10 @@
 
 			.border-gray {
 				border-width: 1px;
+				border-color: #3a3a3a;
+			}
+
+			.border-gray-color {
 				border-color: #3a3a3a;
 			}
 
@@ -995,24 +1016,26 @@
 					class="flex flex-col justify-between h-full w-1/2 pl-2 border-l border-primary space-y-3"
 				>
 					<!-- Header Badge -->
-					<div class="bg-border p-1 text-[11px] text-white">
-						BASED IN <span class="text-primary">//</span> KYIV,
-						UKRAINE
-					</div>
-
+					<h3
+						class="bg-[#121113] border-primary -ml-2 px-2 py-1 text-xl text-white tracking-wider"
+					>
+						BASED IN: <span class="text-primary">//</span
+						><br /><span class="text-primary">\\</span>
+						<span class="font-bold">KYIV, UKR</span>
+					</h3>
 					<!-- Timezone & Telemetry Stack -->
 					<div class="space-y-1">
-						<div class="text-white font-bold text-xs">
+						<h3 class="text-white font-bold text-xs">
 							UTC+3
 							<span class="text-gray-500 font-normal"
 								>// EEST</span
 							>
-						</div>
-						<div
+						</h3>
+						<p
 							class="text-[9px] text-gray-500 uppercase tracking-widest leading-tight"
 						>
 							50.4501° N<br />30.5234° E
-						</div>
+						</p>
 					</div>
 				</div>
 			</div>
