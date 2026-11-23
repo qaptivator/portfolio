@@ -1,4 +1,4 @@
-archive/
+.dev/
 node_modules/
 .env
 dist/
