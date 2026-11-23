@@ -1,112 +1,154 @@
+---
+import StackBubble from "./StackBubble.astro";
+import { packBubbles } from "../lib/packBubbles";
+
+const core = [
+	{ name: "Nuxt", icon: "nuxt", weight: 100 },
+	{ name: "Vue", icon: "vue", weight: 88 },
+	{ name: "TypeScript", icon: "typescript", weight: 64 },
+	{ name: "Tailwind", icon: "tailwind", weight: 56 },
+	{ name: "Python", icon: "python", weight: 36 },
+	{ name: "C#", icon: null, weight: 32 },
+	{ name: "MongoDB", icon: "mongodb", weight: 30 },
+	{ name: "Moleculer", icon: "moleculer", weight: 28 },
+	{ name: "Capacitor", icon: "capacitor", weight: 16 },
+	{ name: "Lua", icon: "lua", weight: 14 },
+	{ name: "C / C++", icon: "cplusplus", weight: 14 },
+	{ name: "Discord.js", icon: "discord", weight: 13 },
+];
+
+const packed = packBubbles(core);
+
+const exploring = [
+	{ name: "Svelte", icon: "svelte", tier: "md" as const },
+	{ name: "Rust", icon: "rust", tier: "md" as const },
+	{ name: "Solidity", icon: "solidity", tier: "md" as const },
+];
+
+const stats = [
+	{
+		value: "5.5k+",
+		unit: "downloads",
+		bar: 88,
+		body: "on the Factorio Mod Portal for",
+		href: "https://mods.factorio.com/mod/TrainStatusIcons",
+		label: "TrainStatusIcons",
+	},
+	{
+		value: "1.8k+",
+		unit: "visits / mo",
+		bar: 62,
+		body: "monthly visits of",
+		href: "https://qaptivator.github.io/cavecrawler-mapper/",
+		label: "Cavecrawler Mapper",
+	},
+	{
+		value: "120+",
+		unit: "members",
+		bar: 40,
+		body: "members of my",
+		href: "https://discord.gg/T5tCeuY5JA",
+		label: "Discord Server",
+	},
+	{
+		value: "2",
+		unit: "in production",
+		bar: 24,
+		body: "businesses running",
+		href: "https://github.com/qaptivator/smsg",
+		label: "smsg",
+		note: "In-house Android SMS gateway. Two-way queue & polling.",
+	},
+];
+---
+
 <!-- #region about me -->
-		<div
-			class="w-full border-t-gray bg-border grid grid-cols-12 gap-[1px] relative text-gray-200 font-mono"
-		>
-			<!-- 1. PHILOSOPHY / INTRO (Span 8) -->
-			<div
-				class="bg-dark p-6 col-span-12 md:col-span-8 flex flex-col justify-between"
-			>
-				<div>
-					<div
-						class="text-xs uppercase tracking-widest text-gray-500 mb-2"
-					>
-						// PHILOSOPHY
-					</div>
-					<h3 class="text-xl font-bold text-white mb-2">
-						Pragmatic. Performant. Purposeful.
-					</h3>
-					<!-- hi hello hi, i'm acdev, a software engineer from Ukraine. i specialize in frontend with 5 years of experience, but as of recently started expanding into fullstack. i build web or phone applications, utilitarian browser extensions or tools, and even ship web products sometimes. all designed to work great and without bloat, look clean and intricate, solve real pains, and automate frictions. or i can just whip up a few experiments sometimes. -->
-					<p class="text-sm text-gray-400 leading-relaxed">
-						5 years in frontend, with a bias for shipping, but
-						expanding into full-stack architecture. I build
-						end-to-end applications, utilitarian browser extensions,
-						and web products designed to stay out of the way,
-						automate friction, solve true pains, and deliver instant
-						utility to users and active workflows.
-					</p>
-				</div>
-				<div class="mt-4 text-xs text-gray-500">
-					<span
-						>[Software Engineer] ✦ [Entrepreneur] ✦ [🎂︎ October
-						21st] ✦ [he/him]</span
-					>
-				</div>
+<div class="bento w-full border-t-gray bg-border grid grid-cols-1 gap-px relative text-gray-200 font-mono">
+	<!-- 1. about -->
+	<div class="bento-about bg-dark p-6 h-full flex flex-col justify-between">
+		<div>
+			<div class="text-xs uppercase tracking-widest text-gray-500 mb-2">
+				// PHILOSOPHY
 			</div>
-
-			<!-- 2. STAT BLOCK: FACTORIO DOWNLOADS (Span 4) -->
-			<div
-				class="bg-dark p-6 col-span-12 md:col-span-4 flex flex-col gap-2"
+			<h3 class="text-xl font-bold text-white mb-2">
+				Pragmatic. Performant. Purposeful.
+			</h3>
+			<!-- hi hello hi, i'm acdev, a software engineer from Ukraine. i specialize in frontend with 5 years of experience, but as of recently started expanding into fullstack. i build web or phone applications, utilitarian browser extensions or tools, and even ship web products sometimes. all designed to work great and without bloat, look clean and intricate, solve real pains, and automate frictions. or i can just whip up a few experiments sometimes. -->
+			<p class="text-sm text-gray-400 leading-relaxed">
+				5 years in frontend, with a bias for shipping, but
+				expanding into full-stack architecture. I build
+				end-to-end applications, utilitarian browser extensions,
+				and web products designed to stay out of the way,
+				automate friction, solve true pains, and deliver instant
+				utility to users and active workflows.
+			</p>
+		</div>
+		<div class="mt-4 text-xs text-gray-500">
+			<span
+				>[Software Engineer] ✦ [Entrepreneur] ✦ [🎂︎ October
+				21st] ✦ [he/him]</span
 			>
-				<div class="text-xs uppercase tracking-widest text-gray-500">
-					// REAL NUMBERS
-					<a
-						target="_blank"
-						class="text-[8px] inline-flex items-center -mr-1 hover:underline"
-						>(Proof?)
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="10"
-							height="10"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="butt"
-							stroke-linejoin="butt"
-						>
-							<line x1="7" y1="17" x2="17" y2="7"></line>
-							<polyline points="7 7 17 7 17 17"></polyline>
-						</svg>
-					</a>
-				</div>
-				<div>
-					<div
-						class="text-4xl font-extrabold text-white tracking-tight"
-					>
-						5.5k+
-					</div>
-					<div class="text-xs text-gray-400 mt-1">
-						Downloads on Factorio Mod Portal for
-						<a
-							href="https://mods.factorio.com/mod/TrainStatusIcons"
-							target="_blank"
-							class="text-gray-200 inline-flex items-center -mr-1 hover:underline"
-							>TrainStatusIcons
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="butt"
-								stroke-linejoin="butt"
-							>
-								<line x1="7" y1="17" x2="17" y2="7"></line>
-								<polyline points="7 7 17 7 17 17"></polyline>
-							</svg>
-						</a>
-					</div>
-				</div>
-				<div class="flex flex-col md:flex-row gap-2 justify-between">
+		</div>
+	</div>
+
+	<!-- 2. statistics, including production -->
+	<div class="bento-stats bg-dark p-6 h-full flex flex-col gap-5">
+		<div class="text-xs uppercase tracking-widest text-gray-500">
+			// REAL NUMBERS
+			<a
+				target="_blank"
+				class="text-[8px] inline-flex items-center -mr-1 hover:underline"
+				>(Proof?)
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="10"
+					height="10"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="butt"
+					stroke-linejoin="butt"
+				>
+					<line x1="7" y1="17" x2="17" y2="7"></line>
+					<polyline points="7 7 17 7 17 17"></polyline>
+				</svg>
+			</a>
+		</div>
+		<div class="flex flex-col justify-between gap-4 flex-1">
+			{
+				stats.map((stat, i) => (
 					<div>
-						<div
-							class="text-4xl font-extrabold text-white tracking-tight"
-						>
-							1.8k+
+						<div class="flex items-end justify-between gap-3">
+							<div
+								class="text-4xl font-bold text-white tracking-tight leading-none"
+								style="font-family: var(--font-heading)"
+							>
+								{stat.value}
+							</div>
+							<div class="text-[10px] uppercase tracking-widest text-gray-500 pb-1">
+								{stat.unit}
+							</div>
 						</div>
-						<div class="text-xs text-gray-400 mt-1">
-							Monthly visits of
+						<div class="mt-2 h-1.5 bg-white/5 overflow-hidden">
+							<div
+								class="stat-bar"
+								style={`width: ${stat.bar}%; animation-delay: ${i * 90}ms`}
+							/>
+						</div>
+						<p class="text-xs text-gray-400 mt-1.5 leading-snug">
+							{stat.body}{" "}
 							<a
-								href="https://qaptivator.github.io/cavecrawler-mapper/"
+								href={stat.href}
 								target="_blank"
+								rel="noopener noreferrer"
 								class="text-gray-200 inline-flex items-center -mr-1 hover:underline"
-								>Cavecrawler Mapper
+							>
+								{stat.label}
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
-									width="16"
-									height="16"
+									width="14"
+									height="14"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -114,265 +156,293 @@
 									stroke-linecap="butt"
 									stroke-linejoin="butt"
 								>
-									<line x1="7" y1="17" x2="17" y2="7"></line>
-									<polyline
-										points="7 7 17 7 17 17"
-									></polyline>
+									<line x1="7" y1="17" x2="17" y2="7" />
+									<polyline points="7 7 17 7 17 17" />
 								</svg>
 							</a>
-						</div>
-					</div>
-					<div>
-						<div
-							class="text-4xl font-extrabold text-white tracking-tight"
-						>
-							120+
-						</div>
-						<div class="text-xs text-gray-400 mt-1">
-							Members of my
-							<a
-								href="https://discord.gg/T5tCeuY5JA"
-								target="_blank"
-								class="text-gray-200 inline-flex items-center -mr-1 hover:underline"
-								>Discord Server
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="16"
-									height="16"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="butt"
-									stroke-linejoin="butt"
-								>
-									<line x1="7" y1="17" x2="17" y2="7"></line>
-									<polyline
-										points="7 7 17 7 17 17"
-									></polyline>
-								</svg>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--<div class="text-[10px] text-gray-500 uppercase mt-2">
-					Status: Legacy
-				</div>-->
-			</div>
-
-			<!-- 3. STAT BLOCK: PRODUCTION DEPLOYMENTS (Span 4) -->
-			<div
-				class="bg-dark p-6 col-span-12 md:col-span-4 flex flex-col justify-between"
-			>
-				<div class="text-xs uppercase tracking-widest text-gray-500">
-					// IN PRODUCTION
-				</div>
-				<div>
-					<div
-						class="text-4xl font-extrabold text-white tracking-tight"
-					>
-						<span class="text-primary">2</span> Active
-					</div>
-					<div class="text-xs text-gray-400 mt-1">
-						Businesses actively running
-						<a
-							href="https://github.com/qaptivator/smsg"
-							target="_blank"
-							class="text-gray-200 inline-flex items-center -mr-1 hover:underline"
-							>smsg
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="butt"
-								stroke-linejoin="butt"
-							>
-								<line x1="7" y1="17" x2="17" y2="7"></line>
-								<polyline points="7 7 17 7 17 17"></polyline>
-							</svg>
-						</a>
-						as an in-house Android SMS API gateway to bypass Twilio
-						fees.
-					</div>
-				</div>
-				<div class="text-[10px] text-gray-500 uppercase mt-2">
-					Two-way queue & polling
-				</div>
-			</div>
-
-			<!-- 4. TECH STACK ARSENAL (Span 4) -->
-			<div
-				class="bg-dark p-6 col-span-12 md:col-span-4 flex flex-col justify-between"
-			>
-				<div
-					class="text-xs uppercase tracking-widest text-gray-500 mb-3"
-				>
-					// PRIMARY STACK
-				</div>
-				<div class="flex flex-wrap gap-2">
-					<span
-						class="px-2 py-1 bg-primary-card text-xs text-gray-300 border border-gray-700"
-						>Vue / Nuxt</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700"
-						>TypeScript</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700"
-						>Tailwind CSS</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700"
-						>Moleculer</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700"
-						>MongoDB</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700"
-						>C#</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700"
-						>Python</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-900 text-xs text-gray-500 border border-gray-800"
-						>CapacitorJS</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-900 text-xs text-gray-500 border border-gray-800"
-						>Lua</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-900 text-xs text-gray-500 border border-gray-800"
-						>C / C++</span
-					>
-					<span
-						class="px-2 py-1 bg-gray-900 text-xs text-gray-500 border border-gray-800"
-						>Discord.js</span
-					>
-				</div>
-				<div class="text-xs text-gray-500 mt-3">
-					Currently exploring: Svelte, Rust, Solidity
-				</div>
-			</div>
-
-			<!-- 5. OPEN SOURCE & CONTRIBUTIONS (Span 4) -->
-			<div
-				class="bg-dark p-6 col-span-12 md:col-span-4 flex items-center justify-between gap-4 font-mono text-xs"
-			>
-				<!-- Left: Map Container (Aspect ~2:1 friendly) -->
-				<div class="relative w-1/2 max-w-[250px] shrink-0">
-					<img
-						class="opacity-10 w-full pointer-events-none block"
-						src="/assets/images/world_map_white.png"
-						alt="World Map"
-					/>
-
-					<!-- Kyiv Target Dot & Line -->
-					<div
-						class="absolute top-[17%] left-[57%] flex flex-col items-center pointer-events-none"
-					>
-						<!-- Kyiv Dot -->
-						<div class="w-1 h-1 rounded-full bg-primary"></div>
-						<!-- Connecting Line -->
-						<div
-							class="w-px h-8 bg-primary -translate-y-full"
-						></div>
-					</div>
-				</div>
-
-				<!-- Right: Telemetry & Info Stack -->
-				<div
-					class="flex flex-col justify-between h-full w-1/2 pl-2 border-l border-primary space-y-3"
-				>
-					<!-- Header Badge -->
-					<h3
-						class="bg-[#121113] border-primary -ml-2 px-2 py-1 text-xl text-white tracking-wider"
-					>
-						BASED IN: <span class="text-primary">//</span
-						><br /><span class="text-primary">\\</span>
-						<span class="font-bold">KYIV, UKR</span>
-					</h3>
-					<!-- Timezone & Telemetry Stack -->
-					<div class="space-y-1">
-						<h3 class="text-white font-bold text-xs">
-							UTC+3
-							<span class="text-gray-500 font-normal"
-								>// EEST</span
-							>
-						</h3>
-						<p
-							class="text-[9px] text-gray-500 uppercase tracking-widest leading-tight"
-						>
-							50.4501° N<br />30.5234° E
+							{stat.note && (
+								<span class="block text-[10px] text-gray-500 uppercase tracking-wide mt-1">
+									{stat.note}
+								</span>
+							)}
 						</p>
 					</div>
-				</div>
-			</div>
+				))
+			}
+		</div>
+	</div>
 
-			<!-- 6. MAGNUM OPUS / CURRENT FOCUS (Span 8) -->
-			<div
-				class="bg-dark p-6 col-span-12 md:col-span-8 flex flex-col justify-between"
+	<!-- 4. tech stack -->
+	<div class="bento-tech bg-dark p-6 h-full flex flex-col">
+		<div class="text-xs uppercase tracking-widest text-gray-500 mb-3">
+			// PRIMARY STACK
+		</div>
+		<div class="flex flex-1 items-center overflow-x-auto">
+			<svg
+				viewBox={`0 0 ${packed.width} ${packed.height}`}
+				class="w-full min-w-[36rem] h-auto"
+				role="img"
+				aria-label="Primary stack, with larger bubbles for the tools I use most"
 			>
-				<div>
-					<div class="flex items-center mb-2 gap-2">
-						<span
-							class="text-xs uppercase tracking-widest text-gray-500"
-							>// ACTIVE MAGNUM OPUS</span
-						>
-					</div>
-					<h3
-						class="text-lg font-bold text-white mb-1 flex items-center gap-2"
-					>
-						Terranations
-						<span
-							class="text-[10px] px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/20"
-							>WIP</span
-						>
-					</h3>
-					<p class="text-xs text-gray-400 leading-relaxed">
-						Persistent, global MMO strategy game set on a 1:1 scale
-						Earth featuring asynchronous action, politics, colony
-						building, and trade on a single server.
-					</p>
-				</div>
-				<div class="text-xs text-gray-500 mt-4">
-					Also building:
-					<span class="text-gray-300">Sleekmirror</span> (First
-					commercial launch in progress)
-				</div>
-			</div>
+				<defs>
+					<filter id="bubble-glow" x="-50%" y="-50%" width="200%" height="200%">
+						<feDropShadow
+							dx="0"
+							dy="0"
+							stdDeviation="5"
+							flood-color="#ff581b"
+							flood-opacity="0.4"></feDropShadow>
+					</filter>
+				</defs>
+				{
+					packed.bubbles.map((bubble) => {
+						const prominent = bubble.weight >= 80;
+						const icon = bubble.r * 0.9;
+						return (
+							<g class="packed-bubble">
+								<title>{bubble.name}</title>
+								<circle
+									cx={bubble.x}
+									cy={bubble.y}
+									r={bubble.r}
+									fill={prominent ? "#4a1805" : "#1a191c"}
+									stroke={prominent ? "#ff581b" : "rgba(238,238,240,0.18)"}
+									stroke-width={prominent ? 1.75 : 1}
+									filter={prominent ? "url(#bubble-glow)" : undefined}
+								/>
+								{bubble.icon ? (
+									<image
+										href={`/icons/${bubble.icon}.svg`}
+										x={bubble.x - icon / 2}
+										y={bubble.y - icon / 2}
+										width={icon}
+										height={icon}
+									/>
+								) : (
+									<text
+										x={bubble.x}
+										y={bubble.y}
+										text-anchor="middle"
+										dominant-baseline="central"
+										fill="#eeeef0"
+										font-size={bubble.r * 0.48}
+										font-family="Space Grotesk, sans-serif"
+										font-weight="700"
+									>
+										C#
+									</text>
+								)}
+								<text
+									x={bubble.x}
+									y={bubble.y + bubble.r + 3}
+									text-anchor="middle"
+									dominant-baseline="hanging"
+									fill="#a1a1aa"
+									font-size="11"
+									font-family="Space Mono, monospace"
+								>
+									{bubble.name}
+								</text>
+							</g>
+						);
+					})
+				}
+			</svg>
+		</div>
+	</div>
 
-			<!-- 7. PERSONAL TRIVIA & DETAILS (Span 4) -->
-			<div
-				class="bg-dark p-6 col-span-12 md:col-span-4 flex flex-col justify-between"
+	<!-- 5. socials -->
+	<div class="bento-socials bg-dark p-4 h-full flex flex-col min-h-[14rem]">
+		<div class="text-xs uppercase tracking-widest text-gray-500 mb-3 px-1">
+			// SOCIALS
+		</div>
+		<div class="grid grid-cols-2 grid-rows-2 gap-2 flex-1">
+			<a
+				href="https://github.com/qaptivator"
+				target="_blank"
+				rel="noopener noreferrer"
+				title="GitHub"
+				class="social-link"
 			>
-				<div class="text-xs uppercase tracking-widest text-gray-500">
-					// HARDWARE & HOBBIES
-				</div>
-				<ul class="text-xs text-gray-400 space-y-1 my-2">
-					<li>
-						• Built CPU assembly logic in Minecraft Redstone &
-						Logisim
-					</li>
-					<li>
-						• Daily driver of
-						<span class="text-gray-200">plainimg2</span> overlay
-						viewer
-					</li>
-					<li>• Loves cooking food</li>
-				</ul>
-				<div class="text-[10px] text-gray-500">
-					Origin: Construct → Unity → Web Dev
-				</div>
+				<svg class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+					<path
+						fill="currentColor"
+						d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+					></path>
+				</svg>
+				<span>GitHub</span>
+			</a>
+			<a
+				href="https://discord.gg/T5tCeuY5JA"
+				target="_blank"
+				rel="noopener noreferrer"
+				title="Discord"
+				class="social-link"
+			>
+				<svg class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+					<path
+						fill="currentColor"
+						d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"
+					></path>
+				</svg>
+				<span>Discord</span>
+			</a>
+			<a
+				href="https://x.com/andreiatdev"
+				target="_blank"
+				rel="noopener noreferrer"
+				title="X"
+				class="social-link"
+			>
+				<svg class="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">
+					<path
+						fill="currentColor"
+						d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"
+					></path>
+				</svg>
+				<span>X</span>
+			</a>
+			<a
+				href="mailto:contact@acdev.app"
+				title="Email"
+				class="social-link"
+			>
+				<svg class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+					<path
+						fill="currentColor"
+						d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+					></path>
+				</svg>
+				<span>Email</span>
+			</a>
+		</div>
+	</div>
+
+	<!-- exploring, split out of the old stack card so the 3×3 stays full -->
+	<div class="bento-explore bg-dark p-6 h-full flex flex-col min-h-[14rem]">
+		<div class="text-xs uppercase tracking-widest text-gray-500">
+			// EXPLORING
+		</div>
+		<div class="flex flex-1 items-center justify-center gap-6">
+			{exploring.map((item) => <StackBubble {...item} />)}
+		</div>
+	</div>
+
+	<!-- 3. location -->
+	<div
+		class="bento-location bg-dark p-6 h-full flex items-center justify-between gap-4 font-mono text-xs min-h-[14rem]"
+	>
+		<div class="relative w-1/2 max-w-[250px] shrink-0">
+			<img
+				class="opacity-10 w-full pointer-events-none block"
+				src="/assets/images/world_map_white.png"
+				alt="World Map"
+			/>
+			<div
+				class="absolute top-[17%] left-[57%] flex flex-col items-center pointer-events-none"
+			>
+				<div class="w-1 h-1 rounded-full bg-primary"></div>
+				<div class="w-px h-8 bg-primary -translate-y-full"></div>
 			</div>
 		</div>
-		<!-- #endregion -->
+		<div
+			class="flex flex-col justify-between h-full w-1/2 pl-2 border-l border-primary space-y-3"
+		>
+			<h3
+				class="bg-[#121113] border-primary -ml-2 px-2 py-1 text-xl text-white tracking-wider"
+			>
+				BASED IN: <span class="text-primary">//</span><br /><span
+					class="text-primary">\\</span
+				>
+				<span class="font-bold">KYIV, UKR</span>
+			</h3>
+			<div class="space-y-1">
+				<h3 class="text-white font-bold text-xs">
+					UTC+3
+					<span class="text-gray-500 font-normal">// EEST</span>
+				</h3>
+				<p
+					class="text-[9px] text-gray-500 uppercase tracking-widest leading-tight"
+				>
+					50.4501° N<br />30.5234° E
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- #endregion -->
+
+<style>
+	@media (min-width: 768px) {
+		.bento {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-rows: auto minmax(18rem, auto) minmax(15rem, auto);
+		}
+		.bento-about {
+			grid-column: 1 / span 2;
+			grid-row: 1;
+		}
+		.bento-stats {
+			grid-column: 3;
+			grid-row: 1 / span 2;
+		}
+		.bento-tech {
+			grid-column: 1 / span 2;
+			grid-row: 2;
+		}
+		.bento-socials {
+			grid-column: 1;
+			grid-row: 3;
+		}
+		.bento-explore {
+			grid-column: 2;
+			grid-row: 3;
+		}
+		.bento-location {
+			grid-column: 3;
+			grid-row: 3;
+		}
+	}
+
+	.social-link {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4rem;
+		border: 1px solid #3a3a3a;
+		color: #eeeef0;
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-size: 10px;
+		opacity: 0.7;
+		transition: opacity 150ms ease, border-color 150ms ease, background-color 150ms ease;
+	}
+	.social-link:hover {
+		opacity: 1;
+		border-color: #ff581b;
+		background: rgba(255, 88, 27, 0.06);
+	}
+
+	.packed-bubble:hover circle {
+		stroke: #ff581b;
+	}
+
+	.stat-bar {
+		height: 100%;
+		transform-origin: left center;
+		background: linear-gradient(90deg, #7a290a, #ff581b);
+		box-shadow: 0 0 14px rgba(255, 88, 27, 0.35);
+		animation: stat-grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	@keyframes stat-grow {
+		from {
+			transform: scaleX(0);
+		}
+		to {
+			transform: scaleX(1);
+		}
+	}
+</style>

@@ -1,0 +1,53 @@
+---
+interface Props {
+	name: string;
+	icon: string | null;
+	tier: "xl" | "lg" | "md" | "sm";
+}
+
+const { name, icon, tier } = Astro.props;
+
+const face = {
+	xl: "w-[5.5rem] border-primary bg-primary-card text-white shadow-[0_0_22px_rgba(255,88,27,0.3)]",
+	lg: "w-16 border-white/30 text-white",
+	md: "w-[3.15rem] border-white/15 text-gray-200",
+	sm: "w-10 border-white/10 text-gray-400",
+}[tier];
+---
+
+<div class="stack-bubble flex flex-col items-center gap-1.5" title={name}>
+	<div
+		class:list={[
+			"rounded-full border bg-[#1a191c] aspect-square flex items-center justify-center",
+			face,
+		]}
+	>
+		{
+			icon ? (
+				<img
+					src={`/icons/${icon}.svg`}
+					alt=""
+					class="w-[48%] h-[48%] object-contain"
+				/>
+			) : (
+				<span
+					class="font-bold leading-none tracking-tight"
+					style="font-family: var(--font-heading); font-size: 0.95rem"
+					>C#</span
+				>
+			)
+		}
+	</div>
+	<span class="text-[10px] uppercase tracking-wider text-gray-400 whitespace-nowrap">
+		{name}
+	</span>
+</div>
+
+<style>
+	.stack-bubble {
+		transition: transform 160ms ease;
+	}
+	.stack-bubble:hover {
+		transform: translateY(-4px);
+	}
+</style>
