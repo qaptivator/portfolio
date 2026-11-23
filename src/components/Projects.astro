@@ -1,0 +1,25 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import { projects } from "../data/projects";
+---
+
+<div
+	class="w-full min-h-screen flex flex-col items-center bg-dark bg-hazard border-t-gray py-10 gap-10"
+>
+	<div>
+		<h1>/// PRØJECTS \\\</h1>
+		<p class="text-center text-primary">
+			2020-<span class="current-year">now</span>
+		</p>
+	</div>
+	{
+		projects.map((project) => (
+			<ProjectCard
+				image={project.image}
+				alt={project.alt}
+				description={project.description}
+				href={project.href}
+			/>
+		))
+	}
+</div>

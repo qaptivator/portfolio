@@ -1,6 +1,8 @@
 # portfolio
 
-my super cool portfolio website. MVP made in a single html file in about 3 hours in 24/09/2026 (writing as of 2:32 AM lol)
+my super cool portfolio website, built with astro.
+
+pushes to `prod` build the site and deploy it to github pages (`acdev.app`). pushes to `main` do not deploy. `./deploy.sh` merges `main` into `prod` and pushes.
 
 original portfolio/readme/profile showcase: https://github.com/qaptivator/qaptivator
 

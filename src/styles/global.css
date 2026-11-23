@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+
+			:root {
+				--font-heading: "Space Grotesk", sans-serif;
+				--font-body: "Space Mono", serif;
+				--project-card-corner-cutout: 50px;
+			}
+
+			body {
+				background-color: #121113;
+				color: #eeeef0;
+				font-family: var(--font-body);
+			}
+
+			h1 {
+				font-family: var(--font-heading);
+				font-weight: bold;
+				font-size: 2.25rem;
+				line-height: 2.5rem; /* 4xl */
+			}
+
+			h2 {
+				font-family: var(--font-heading);
+				font-weight: bold;
+			}
+
+			h3 {
+				font-family: var(--font-heading);
+			}
+
+			p {
+				font-family: var(--font-body);
+				/*color: #3a3a3a;*/
+			}
+
+			button {
+				transition-property: all;
+				transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+				transition-duration: 150ms;
+
+				cursor: crosshair;
+				color: #eeeef0;
+				border-color: #eeeef0;
+				border-width: 3px;
+				opacity: 70%;
+			}
+			button > * {
+				pointer-events: none;
+			}
+			button:hover {
+				opacity: 100%;
+			}
+
+			.text-primary {
+				color: #ff581b;
+			}
+
+			.border-primary {
+				border-color: #ff581b;
+			}
+
+			.border-primary-muted {
+				border-color: #7a290a;
+			}
+
+			.bg-primary-card {
+				background-color: #4a1805;
+				border-color: #7a290a;
+			}
+
+			.bg-primary {
+				background-color: #ff581b;
+			}
+
+			.bg-primary-muted {
+				background-color: #4a1805;
+			}
+
+			.bg-dark {
+				background-color: #121113;
+			}
+
+			.bg-border {
+				background-color: #3a3a3a;
+			}
+
+			.gap-1px {
+				gap: 1px;
+			}
+
+			.border-t-gray {
+				border-top-width: 1px;
+				border-color: #3a3a3a;
+			}
+
+			.border-gray {
+				border-width: 1px;
+				border-color: #3a3a3a;
+			}
+
+			.border-gray-color {
+				border-color: #3a3a3a;
+			}
+
+			.border-white {
+				border-width: 2px;
+				border-color: #eeeef0;
+			}
+
+			.bg-noise {
+				background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+			}
+
+			.bg-grid {
+				background-size: 40px 40px;
+				background-image: linear-gradient(
+						to right,
+						rgba(255, 255, 255, 0.03) 1px,
+						transparent 1px
+					),
+					linear-gradient(
+						to bottom,
+						rgba(255, 255, 255, 0.03) 1px,
+						transparent 1px
+					);
+				animation: bg-shift 4s linear infinite;
+			}
+
+			.bg-hazard {
+				--stripe-width: 20px;
+				background-image: repeating-linear-gradient(
+					-45deg,
+					rgba(255, 255, 255, 0.01),
+					rgba(255, 255, 255, 0.01) var(--stripe-width),
+					transparent var(--stripe-width),
+					transparent calc(var(--stripe-width) * 2)
+				);
+			}
+
+			@keyframes bg-shift {
+				0% {
+					background-position: 0 0;
+				}
+				100% {
+					background-position: 40px 40px;
+				}
+			}
+
+			#hero-card {
+				transform: scale(1.5);
+				transform-origin: center center;
+			}
+			.project-card {
+				max-width: 800px;
+				clip-path: polygon(
+					0 0,
+					100% 0,
+					100% calc(100% - var(--project-card-corner-cutout)),
+					calc(100% - var(--project-card-corner-cutout)) 100%,
+					0 100%
+				);
+				filter: drop-shadow(1px 0px 0px #3a3a3a)
+					drop-shadow(-1px 0px 0px #3a3a3a)
+					drop-shadow(0px 1px 0px #3a3a3a)
+					drop-shadow(0px -1px 0px #3a3a3a);
+			}
+			@media (max-width: 480px) {
+				#hero-card {
+					transform: scale(0.8) !important;
+				}
+				.project-card {
+					font-size: 0.75rem;
+					line-height: 1rem;
+					max-width: 400px;
+				}
+			}
+
+			/* #region hero card css */
+
+			/* dot to box */
+			.dot-to-box {
+				animation: dot-to-box-div 1s cubic-bezier(0.6, 0, 0.2, 1);
+			}
+			.dot-to-box *:not(.no-fade) {
+				/*transition-property: all;
+				transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+				transition-duration: 150ms;
+				animation: dot-to-box-child 1s cubic-bezier(0.4, 0, 0.2, 1);*/
+			}
+
+			.tech-icons {
+				--target-opacity: 50%;
+			}
+
+			@keyframes dot-to-box-div {
+				0% {
+					width: 0;
+					height: 0;
+					padding: 0;
+					overflow: hidden;
+				}
+				50% {
+					width: 0;
+					height: 10.4rem; /* 0.5 tailwind units = 0.125 rem */
+					padding-left: 0;
+					padding-right: 0;
+					overflow: hidden;
+				}
+				100% {
+					width: 25rem;
+					height: 10.4rem;
+					overflow: visible;
+				}
+			}
+
+			/*@keyframes dot-to-box-child {
+				0%,
+				70% {
+					opacity: 0%;
+				}
+				100% {
+					opacity: var(--target-opacity, 100%);
+				}
+			}*/
+
+			/* wordslider */
+			:root {
+				--wordslider-slide-height: 40px; /* Height of a single line of text */
+				--wordslider-num-words: 4; /* Number of unique words (excluding the loop duplicate) */
+			}
+
+			.wordslider-box {
+				font-family: sans-serif;
+				font-size: 32px;
+				font-weight: bold;
+				display: flex;
+				align-items: center;
+				height: var(--wordslider-slide-height);
+				overflow: hidden; /* Hides the words waiting in queue */
+			}
+
+			.wordslider-words {
+				margin-left: 10px;
+				height: var(--wordslider-slide-height);
+			}
+
+			.wordslider-word-wrapper {
+				/*
+                Total duration = 6 seconds (2s per unique word).
+                'infinite' keeps the cycle going forever.
+                */
+				animation: wordslider-slide-up 8s
+					cubic-bezier(0.77, 0, 0.175, 1) infinite;
+			}
+
+			.wordslider-word {
+				height: var(--wordslider-slide-height);
+				line-height: var(--wordslider-slide-height);
+				color: #ff581b;
+			}
+
+			/*
+            Keyframes formula for steps:
+            0% to 25% -> Show word 1 (0px)
+            33% to 58% -> Show word 2 (-40px)
+            66% to 91% -> Show word 3 (-80px)
+            100% -> Snap back to the duplicate word 1 (-120px), instantly resetting to 0%
+
+            word count:
+            2 -> 0%, 40% -- 50%, 90% -- 100%
+            3 -> 0%, 25% -- 33%, 58% -- 66%, 91% -- 100%
+            4 -> 0%, 18% -- 25%, 43% -- 50%, 68% -- 75%, 93% -- 100%
+            5 -> 0%, 15% -- 20%, 35% -- 40%, 55% -- 60%, 75% -- 80%, 95% -- 100%
+            6 -> 0%, 12% -- 16.6%, 28.6% -- 33.3%, 45.3% -- 50%, 62% -- 66.6%, 78.6% -- 83.3%, 95.3% -- 100%
+            7 -> 0%, 10% -- 14.3%, 24.3% -- 28.6%, 38.6% -- 42.9%, 52.9% -- 57.1%, 67.1% -- 71.4%, 81.4% -- 85.7%, 95.7% -- 100%
+            */
+			@keyframes wordslider-slide-up {
+				0%,
+				18% {
+					transform: translateY(0);
+				}
+				25%,
+				43% {
+					transform: translateY(
+						calc(-1 * var(--wordslider-slide-height))
+					);
+				}
+				50%,
+				68% {
+					transform: translateY(
+						calc(-2 * var(--wordslider-slide-height))
+					);
+				}
+				75%,
+				93% {
+					transform: translateY(
+						calc(-3 * var(--wordslider-slide-height))
+					);
+				}
+				100% {
+					transform: translateY(
+						calc(-4 * var(--wordslider-slide-height))
+					);
+				}
+			}
+			/* #endregion */
+		

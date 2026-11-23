@@ -1,0 +1,38 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>acdev</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="bg-grid">
+		<slot />
+		<script>
+			const year = new Date().getFullYear();
+			document.querySelectorAll(".current-year").forEach((el) => {
+				el.textContent = String(year);
+			});
+			window.addEventListener("scroll", () => {
+				const hint = document.getElementById("scroll-down-hint");
+				if (!hint) return;
+				if (window.scrollY > 20) {
+					hint.classList.add("opacity-0");
+					hint.classList.remove("opacity-20");
+				} else {
+					hint.classList.add("opacity-20");
+					hint.classList.remove("opacity-0");
+				}
+			});
+		</script>
+	</body>
+</html>
